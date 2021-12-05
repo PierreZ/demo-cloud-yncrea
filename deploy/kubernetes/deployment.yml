@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yncrea-demo
+spec:
+  selector:
+    matchLabels:
+      app: yncrea-demo
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: yncrea-demo
+    spec:
+      containers:
+      - name: yncrea
+        image: ghcr.io/pierrez/demo-cloud-yncrea:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: POSTGRESQL_ADDON_HOST
+          value: MY_VALUE
+        - name: POSTGRESQL_ADDON_DB
+          value: MY_VALUE
+        - name: POSTGRESQL_ADDON_USER
+          value: MY_VALUE
+        - name: POSTGRESQL_ADDON_PORT
+          value: MY_VALUE
+        - name: POSTGRESQL_ADDON_PASSWORD
+          value: MY_VALUE
