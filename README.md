@@ -2,6 +2,11 @@
 
 ## Description
 
+An simple application exposing a REST API that can be deployed on a:
+
+* IaaS
+* PaaS
+* KaaS
 
 ## Start local PG
 
