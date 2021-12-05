@@ -1,0 +1,21 @@
+# /etc/systemd/system/demo.service
+[Unit]
+Description=demo
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=/bin/demo-cloud-yncrea
+# Client Env Vars
+Environment=POSTGRESQL_ADDON_HOST=localhost
+Environment=POSTGRESQL_ADDON_DB=postgres
+Environment=POSTGRESQL_ADDON_USER=postgres
+Environment=POSTGRESQL_ADDON_PORT=5432
+Environment=POSTGRESQL_ADDON_PASSWORD=secret
+Environment=POSTGRESQL_ADDON_SSLMODE=disable
+
+[Install]
+WantedBy=multi-user.target
